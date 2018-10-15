@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Arbeitgeber implements Serializable {
 
+    private String arbeitgeberNr;
+
     private String firmenname;
 
     private String vorname;

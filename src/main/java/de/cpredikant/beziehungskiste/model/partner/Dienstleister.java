@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Dienstleister implements Serializable {
 
+    private String dienstleisterNr;
+
     private String dienstleisterTyp;
 
     private String frimenname;

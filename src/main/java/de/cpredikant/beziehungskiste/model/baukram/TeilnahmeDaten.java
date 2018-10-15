@@ -6,6 +6,8 @@ import java.util.List;
 
 public class TeilnahmeDaten implements Serializable {
 
+    private String arbeitgeberNr;
+
     private String teilnahmeStatus;
 
     private List<Taetigkeiten> taetigkeiten;

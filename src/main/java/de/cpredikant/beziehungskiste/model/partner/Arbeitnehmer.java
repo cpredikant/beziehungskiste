@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class Arbeitnehmer implements Serializable {
 
+    private String arbeitnehmerNr;
+
     private String anrede;
 
     private String vorname;
