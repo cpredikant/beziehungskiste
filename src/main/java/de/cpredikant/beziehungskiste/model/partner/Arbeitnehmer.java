@@ -17,6 +17,10 @@ public class Arbeitnehmer implements Serializable {
 
     private String geburtsdatum;
 
+    private String geburtsort;
+
+    private String sozialversicherungsNr;
+
     private Adresse adresse;
 
     private Bankkonto bankkonto;
