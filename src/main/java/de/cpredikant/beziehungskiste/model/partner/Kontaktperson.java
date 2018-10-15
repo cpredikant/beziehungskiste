@@ -1,5 +1,8 @@
 package de.cpredikant.beziehungskiste.model.partner;
 
+import lombok.Data;
+
+@Data
 public class Kontaktperson {
 
     private String kontaktPersonTyp;

@@ -1,8 +1,11 @@
 package de.cpredikant.beziehungskiste.model.partner;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.List;
 
+@Data
 public class Arbeitgeber implements Serializable {
 
     private String arbeitgeberNr;

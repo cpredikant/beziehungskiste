@@ -1,9 +1,12 @@
 package de.cpredikant.beziehungskiste.model.baukram;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+@Data
 public class TeilnahmeDaten implements Serializable {
 
     private String arbeitgeberNr;
