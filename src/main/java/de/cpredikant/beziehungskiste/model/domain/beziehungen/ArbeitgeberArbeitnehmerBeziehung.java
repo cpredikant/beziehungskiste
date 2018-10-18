@@ -3,12 +3,10 @@ package de.cpredikant.beziehungskiste.model.domain.beziehungen;
 import de.cpredikant.beziehungskiste.model.enums.beziehungen.BeziehungsTyp;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
-
 public class ArbeitgeberArbeitnehmerBeziehung implements Serializable {
 
     private static final long serialVersionUID = 1L;

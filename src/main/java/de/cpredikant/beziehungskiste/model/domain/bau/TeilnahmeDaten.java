@@ -5,10 +5,8 @@ import de.cpredikant.beziehungskiste.model.enums.bau.TarifgebietTyp;
 import de.cpredikant.beziehungskiste.model.enums.bau.TeilnahmestatusTyp;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 public class TeilnahmeDaten implements Serializable {

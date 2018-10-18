@@ -17,17 +17,17 @@ public class VerbandEntity implements Serializable {
     @Id
     @SequenceGenerator(name = "VERBAND_GEN", sequenceName = "VERBAND_SEQ")
     @GeneratedValue(generator = "VERBAND_GEN")
-    @Column(name="ID")
+    @Column(name = "ID")
     private Long id;
 
     @Version
-    @Column(name="VERSION")
+    @Column(name = "VERSION")
     private Long version;
 
-    @Column(name = "AG_NR", updatable = false ,nullable = false, length = 50)
+    @Column(name = "AG_NR", updatable = false, nullable = false, length = 50)
     private String arbeitgeberNr;
 
-    @Column(name="VERBAND_TYP", updatable = false, nullable = false, length = 200)
+    @Column(name = "VERBAND_TYP", updatable = false, nullable = false, length = 200)
     private VerbandTyp verbandTyp;
 
     @Column(name = "BEGINN_DATUM", nullable = false)

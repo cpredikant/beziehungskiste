@@ -5,4 +5,5 @@ public enum TitelTyp {
     DR,
     PROFESSOR,
     SONSTIGE
+
 }

@@ -49,10 +49,10 @@ public class AdresseEntity implements Serializable {
     @Column(name = "LAND", length = 100)
     private String land;
 
-    @Column(name="HAUPT_ADRESSE", nullable = false)
+    @Column(name = "HAUPT_ADRESSE", nullable = false)
     private boolean hauptAdresse;
 
-    @Column(name="AUSLAND", nullable = false)
+    @Column(name = "AUSLAND", nullable = false)
     private boolean ausland;
 
 }

@@ -46,6 +46,5 @@ public class TeilnahmeDatenEntity implements Serializable {
 
     @Column(name = "BEMERKUNG", length = 3000)
     private String bemerkung;
-
-
+    
 }

@@ -26,13 +26,13 @@ public class KontaktpersonEntity implements Serializable {
     @Column(name = "VERSION")
     private Long version;
 
-    @Column(name="PARTNER_NR", updatable = false, nullable = false, length = 50)
+    @Column(name = "PARTNER_NR", updatable = false, nullable = false, length = 50)
     private String partnerNr;
 
-    @Column(name="PARTNER_TYP",updatable = false, nullable = false, length = 20)
+    @Column(name = "PARTNER_TYP", updatable = false, nullable = false, length = 20)
     private PartnerTyp partnerTyp;
 
-    @Column(name="KONTAKTPERSON_TYP", nullable = false, length = 20)
+    @Column(name = "KONTAKTPERSON_TYP", nullable = false, length = 20)
     private KontaktpersonTyp kontaktPersonTyp;
 
     @Column(name = "ANREDE_TYP", nullable = false, length = 20)

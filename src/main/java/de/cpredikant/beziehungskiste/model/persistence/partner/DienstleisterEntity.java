@@ -17,29 +17,29 @@ public class DienstleisterEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name="DL_NR", length = 50)
+    @Column(name = "DL_NR", length = 50)
     private String dienstleisterNr;
 
     @Version
-    @Column(name="VERSION")
+    @Column(name = "VERSION")
     private Long version;
 
-    @Column(name="DIENSTLEISTER_TYP", nullable = false, length = 20)
+    @Column(name = "DIENSTLEISTER_TYP", nullable = false, length = 20)
     private DienstleisterTyp dienstleisterTyp;
 
-    @Column(name="RECHTSFORM_TYP", nullable = false, length = 20)
+    @Column(name = "RECHTSFORM_TYP", nullable = false, length = 20)
     private RechtsformTyp rechtsformTyp;
 
-    @Column(name="FIRMENNAME", length = 3000)
+    @Column(name = "FIRMENNAME", length = 3000)
     private String frimenname;
 
-    @Column(name="ANREDE_TYP", length = 20)
+    @Column(name = "ANREDE_TYP", length = 20)
     private AnredeTyp anredeTyp;
 
-    @Column(name="VORNAME", length = 100)
+    @Column(name = "VORNAME", length = 100)
     private String vorname;
 
-    @Column(name="NACHNAME", length = 100)
+    @Column(name = "NACHNAME", length = 100)
     private String nachname;
 
 }

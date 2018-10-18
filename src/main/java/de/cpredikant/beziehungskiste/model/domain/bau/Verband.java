@@ -3,7 +3,6 @@ package de.cpredikant.beziehungskiste.model.domain.bau;
 import de.cpredikant.beziehungskiste.model.enums.bau.VerbandTyp;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 

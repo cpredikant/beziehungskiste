@@ -6,9 +6,7 @@ import de.cpredikant.beziehungskiste.model.enums.partner.AnredeTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.TitelTyp;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 public class Vertreter implements Serializable {

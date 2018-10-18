@@ -23,37 +23,37 @@ public class BankkontoEntity implements Serializable {
     @Column(name = "VERSION")
     private Long version;
 
-    @Column(name = "PARTNER_NR",updatable = false, nullable = false, length = 50)
+    @Column(name = "PARTNER_NR", updatable = false, nullable = false, length = 50)
     private String partnerNr;
 
-    @Column(name="PARTNER_TYP" ,updatable = false, nullable = false, length = 20)
+    @Column(name = "PARTNER_TYP", updatable = false, nullable = false, length = 20)
     private PartnerTyp partnerTyp;
 
-    @Column(name="BIC", length = 20)
+    @Column(name = "BIC", length = 20)
     private String bic;
 
-    @Column(name="IBAN", length = 50)
+    @Column(name = "IBAN", length = 50)
     private String iban;
 
-    @Column(name="KONTO_NR", length = 50)
+    @Column(name = "KONTO_NR", length = 50)
     private String kontoNr;
 
-    @Column(name="BLZ", length = 20)
+    @Column(name = "BLZ", length = 20)
     private String blz;
 
-    @Column(name="KONTOINHABER", nullable = false, length = 300)
+    @Column(name = "KONTOINHABER", nullable = false, length = 300)
     private String kontoinhaber;
 
-    @Column(name="WINTERBAU", nullable = false)
+    @Column(name = "WINTERBAU", nullable = false)
     private boolean winterbau;
 
-    @Column(name="EINZAHLUNG", nullable = false)
+    @Column(name = "EINZAHLUNG", nullable = false)
     private boolean einzahlung;
 
-    @Column(name="AUSZAHLUNG", nullable = false)
+    @Column(name = "AUSZAHLUNG", nullable = false)
     private boolean auszahlung;
 
-    @Column(name="AUSLAND", nullable = false)
+    @Column(name = "AUSLAND", nullable = false)
     private boolean ausland;
 
 }

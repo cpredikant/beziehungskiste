@@ -7,4 +7,5 @@ public enum RechtsformTyp {
     OHG,
     AG,
     SONSTIGE
+
 }

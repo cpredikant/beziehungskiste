@@ -5,7 +5,6 @@ import de.cpredikant.beziehungskiste.model.enums.partner.AnredeTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.RechtsformTyp;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 

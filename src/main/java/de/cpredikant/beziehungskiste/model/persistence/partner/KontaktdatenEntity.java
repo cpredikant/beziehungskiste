@@ -16,29 +16,29 @@ public class KontaktdatenEntity implements Serializable {
     @Id
     @SequenceGenerator(name = "KONTAKTDATEN_GEN", sequenceName = "KONTAKTDATEN_SEQ")
     @GeneratedValue(generator = "KONTAKTDATEN_GEN")
-    @Column(name="ID")
+    @Column(name = "ID")
     private Long id;
 
     @Version
-    @Column(name="VERSION")
+    @Column(name = "VERSION")
     private Long version;
 
-    @Column(name="PARTNER_NR", updatable = false, nullable = false, length = 50)
+    @Column(name = "PARTNER_NR", updatable = false, nullable = false, length = 50)
     private String partnerNr;
 
-    @Column(name="PARTNER_TYP", updatable = false, nullable = false, length = 20)
+    @Column(name = "PARTNER_TYP", updatable = false, nullable = false, length = 20)
     private PartnerTyp partnerTyp;
 
-    @Column(name="TELEFON_NR", length = 50)
+    @Column(name = "TELEFON_NR", length = 50)
     private String telefonNr;
 
-    @Column(name="TFAX_NR", length = 50)
+    @Column(name = "TFAX_NR", length = 50)
     private String faxNr;
 
-    @Column(name="MOBIL_NR", length = 50)
+    @Column(name = "MOBIL_NR", length = 50)
     private String mobilNr;
 
-    @Column(name="HAUPT_KONTAKTDATEN", nullable = false)
+    @Column(name = "HAUPT_KONTAKTDATEN", nullable = false)
     private boolean hauptKontaktdaten;
 
 }

@@ -2,7 +2,6 @@ package de.cpredikant.beziehungskiste.model.domain.beziehungen;
 
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 

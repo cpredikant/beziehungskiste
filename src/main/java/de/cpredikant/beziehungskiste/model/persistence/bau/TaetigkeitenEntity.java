@@ -18,11 +18,11 @@ public class TaetigkeitenEntity implements Serializable {
     @Id
     @SequenceGenerator(name = "TAETIGKEITEN_GEN", sequenceName = "TAETIGKEITEN_SEQ")
     @GeneratedValue(generator = "TAETIGKEITEN_GEN")
-    @Column(name="ID")
+    @Column(name = "ID")
     private Long id;
 
     @Version
-    @Column(name="VERSION")
+    @Column(name = "VERSION")
     private Long version;
 
     @Column(name = "AG_NR", updatable = false, nullable = false, length = 50)
@@ -31,7 +31,7 @@ public class TaetigkeitenEntity implements Serializable {
     @Column(name = "TAETIGKEIT_TYP", updatable = false, nullable = false, length = 20)
     private TaetigkeitTyp taetigkeitTyp;
 
-    @Column(name="PROZENTSATZ", nullable = false, precision = 5, scale = 2)
+    @Column(name = "PROZENTSATZ", nullable = false, precision = 5, scale = 2)
     private BigDecimal prozentsatz;
 
     @Column(name = "BEGINN_DATUM", nullable = false)
@@ -39,6 +39,5 @@ public class TaetigkeitenEntity implements Serializable {
 
     @Column(name = "ENDE_DATUM")
     private LocalDate endeDatum;
-
 
 }

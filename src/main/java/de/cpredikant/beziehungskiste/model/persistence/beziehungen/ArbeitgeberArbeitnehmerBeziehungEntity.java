@@ -17,11 +17,11 @@ public class ArbeitgeberArbeitnehmerBeziehungEntity implements Serializable {
     @Id
     @SequenceGenerator(name = "ag_an_bez_gen", sequenceName = "ag_an_bez_seq")
     @GeneratedValue(generator = "ag_an_bez_gen")
-    @Column(name="ID")
+    @Column(name = "ID")
     private Long id;
 
     @Version
-    @Column(name="VERSION")
+    @Column(name = "VERSION")
     private Long version;
 
     @Column(name = "VON_AG_NR", length = 50, nullable = false)
@@ -30,7 +30,7 @@ public class ArbeitgeberArbeitnehmerBeziehungEntity implements Serializable {
     @Column(name = "VON_AN_NR", length = 50, nullable = false)
     private String zuArbeitnehmerNr;
 
-    @Column(name="BEZIEHUNGS_TYP", nullable = false, length = 20)
+    @Column(name = "BEZIEHUNGS_TYP", nullable = false, length = 20)
     private BeziehungsTyp beziehungsTyp;
 
     @Column(name = "BEGINN_DATUM", nullable = false)

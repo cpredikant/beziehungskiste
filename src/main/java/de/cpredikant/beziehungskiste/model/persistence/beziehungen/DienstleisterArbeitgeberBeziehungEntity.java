@@ -16,7 +16,7 @@ public class DienstleisterArbeitgeberBeziehungEntity implements Serializable {
     @Id
     @SequenceGenerator(name = "DL_AG_BEZ_GEN", sequenceName = "DL_AG_BEZ_SEQ")
     @GeneratedValue(generator = "DL_AG_BEZ_GEN")
-    @Column(name="ID")
+    @Column(name = "ID")
     private Long id;
 
     @Version

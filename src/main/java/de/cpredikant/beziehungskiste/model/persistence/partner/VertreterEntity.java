@@ -1,11 +1,11 @@
 package de.cpredikant.beziehungskiste.model.persistence.partner;
 
 
+import de.cpredikant.beziehungskiste.model.enums.bau.VertreterTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.AnredeTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.PartnerTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.RechtsformTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.TitelTyp;
-import de.cpredikant.beziehungskiste.model.enums.bau.VertreterTyp;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -28,16 +28,16 @@ public class VertreterEntity implements Serializable {
     @Column(name = "VERSION")
     private Long version;
 
-    @Column(name="PARTNER_NR",updatable = false, nullable = false, length = 50)
+    @Column(name = "PARTNER_NR", updatable = false, nullable = false, length = 50)
     private String partnerNr;
 
-    @Column(name="PARTNER_TYP",updatable = false, nullable = false, length = 20)
+    @Column(name = "PARTNER_TYP", updatable = false, nullable = false, length = 20)
     private PartnerTyp partnerTyp;
 
-    @Column(name = "VERTRETER_TYP",nullable = false, length = 20)
+    @Column(name = "VERTRETER_TYP", nullable = false, length = 20)
     private VertreterTyp vertreterTyp;
 
-    @Column(name="RECHTSFORM_TYP", length = 20)
+    @Column(name = "RECHTSFORM_TYP", length = 20)
     private RechtsformTyp rechtsformTyp;
 
     @Column(name = "FIRMENNAME", length = 3000)

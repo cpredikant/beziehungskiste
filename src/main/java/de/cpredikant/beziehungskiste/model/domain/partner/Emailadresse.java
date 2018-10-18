@@ -3,7 +3,6 @@ package de.cpredikant.beziehungskiste.model.domain.partner;
 import de.cpredikant.beziehungskiste.model.enums.partner.EmailadresseTyp;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 @Data

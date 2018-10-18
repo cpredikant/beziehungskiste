@@ -5,7 +5,6 @@ import de.cpredikant.beziehungskiste.model.enums.partner.DienstleisterTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.RechtsformTyp;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -37,7 +36,6 @@ public class Dienstleister implements Serializable {
     private List<Kontaktperson> kontaktPersonen;
 
     private List<Emailadresse> emailAdressesen;
-
 
 
 }

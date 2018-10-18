@@ -5,4 +5,5 @@ public enum AnredeTyp {
     HERR,
     FRAU,
     SONSTIGE
+
 }
