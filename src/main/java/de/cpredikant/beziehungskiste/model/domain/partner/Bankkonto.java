@@ -6,19 +6,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
-@Entity
-@Table(name = "bankkonto")
 public class Bankkonto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @SequenceGenerator(name = "bankkonto_gen", sequenceName = "bankkonto_seq")
-    @GeneratedValue(generator = "bankkonto_gen")
-    private Long id;
+    private final Long id;
 
-    @Version
-    private Long version;
+    private final Long version;
 
     private String bic;
 

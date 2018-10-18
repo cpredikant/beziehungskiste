@@ -1,26 +1,27 @@
 package de.cpredikant.beziehungskiste.model.domain.bau;
 
+import de.cpredikant.beziehungskiste.model.enums.bau.VerbandTyp;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Data
-@Entity
-@Table(name = "VERBAND", schema = "PARTNER")
 public class Verband implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "ID")
-    private String verbandNr;
+    private Long id;
 
-    @Version
-    @Column(name = "VERSION")
     private Long version;
 
-    @Column(name = "BEZEICHNUNG")
-    private String bezeichnung;
+    private String arbeitgeberNr;
+
+    private VerbandTyp verbandTyp;
+
+    private LocalDate beginnDatum;
+
+    private LocalDate endeDatum;
 
 }

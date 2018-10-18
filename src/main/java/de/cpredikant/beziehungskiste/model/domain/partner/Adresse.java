@@ -6,18 +6,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
-@Table(name = "adresse")
 public class Adresse implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @SequenceGenerator(name = "adresse_gen", sequenceName = "adresse_seq")
-    @GeneratedValue(generator = "adresse_gen")
-    private Long id;
+    private final Long id;
 
-    @Version
-    private Long version;
+    private final Long version;
 
     private String strasse;
 

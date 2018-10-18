@@ -11,30 +11,26 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Entity
-@Table(name = "teilnahme_daten")
 public class TeilnahmeDaten implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private final Long id;
 
-    private Long version;
+    private final Long version;
 
     private String arbeitgeberNr;
 
     private TeilnahmestatusTyp teilnahmestatusTyp;
 
-    private List<Taetigkeiten> taetigkeiten;
-
     private TarifgebietTyp tarifgebietTyp;
 
-    private LocalDate beginn;
+    private LocalDate beginnDatum;
 
-    private LocalDate ende;
+    private LocalDate endeDatum;
 
     private SchliessgrundTyp schliessgrundTyp;
 
-
+    private String bemerkung;
 
 }

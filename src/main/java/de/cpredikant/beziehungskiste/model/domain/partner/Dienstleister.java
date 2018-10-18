@@ -10,17 +10,13 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
-@Entity
-@Table(name = "dienstleister")
 public class Dienstleister implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    private String dienstleisterNr;
+    private final String dienstleisterNr;
 
-    @Version
-    private Long version;
+    private final Long version;
 
     private DienstleisterTyp dienstleisterTyp;
 
@@ -34,16 +30,12 @@ public class Dienstleister implements Serializable {
 
     private RechtsformTyp rechtsformTyp;
 
-    @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dienstleister")
     private Adresse adresse;
 
-    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dienstleister")
     private List<Kontaktdaten> kontaktdaten;
 
-    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dienstleister")
     private List<Kontaktperson> kontaktPersonen;
 
-    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dienstleister")
     private List<Emailadresse> emailAdressesen;
 
 

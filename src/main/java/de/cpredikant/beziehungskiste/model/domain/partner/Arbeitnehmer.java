@@ -10,17 +10,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
-@Entity
-@Table(name = "arbeitnehmer")
 public class Arbeitnehmer implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    private String arbeitnehmerNr;
+    private final String arbeitnehmerNr;
 
-    @Version
-    private Long version;
+    private final Long version;
 
     private AnredeTyp anredeTyp;
 
@@ -38,16 +34,12 @@ public class Arbeitnehmer implements Serializable {
 
     private String sozialversicherungsNr;
 
-    @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "arbeitnehmer")
     private Adresse adresse;
 
-    @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "arbeitnehmer")
     private Bankkonto bankkonto;
 
-    @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "arbeitnehmer")
     private Kontaktdaten kontaktdaten;
 
-    @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "arbeitnehmer")
     private Emailadresse emailadresse;
 
 }

@@ -7,19 +7,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
-@Entity
-@Table(name = "ag_ag_bez")
 public class ArbeitgeberArbeitgeberBeziehung implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @SequenceGenerator(name = "ag_ag_bez_gen", sequenceName = "ag_ag_bez_seq")
-    @GeneratedValue(generator = "ag_ag_bez_gen")
-    private Long id;
+    private final Long id;
 
-    @Version
-    private Long version;
+    private final Long version;
 
     private String vonArbeitgeberNr;
 

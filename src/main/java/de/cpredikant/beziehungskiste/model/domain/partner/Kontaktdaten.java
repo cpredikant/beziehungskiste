@@ -6,19 +6,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
-@Entity
-@Table(name = "kontaktdaten")
 public class Kontaktdaten implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @SequenceGenerator(name = "kontaktdaten_gen", sequenceName = "kontaktdaten_seq")
-    @GeneratedValue(generator = "kontaktdaten_gen")
-    private Long id;
+    private final Long id;
 
-    @Version
-    private Long version;
+    private final Long version;
 
     private String telefonNr;
 
