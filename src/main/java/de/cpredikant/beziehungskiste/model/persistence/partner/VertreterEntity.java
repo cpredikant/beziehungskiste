@@ -46,7 +46,7 @@ public class VertreterEntity implements Serializable {
     @Column(name = "ANREDE_TYP", length = 20)
     private AnredeTyp anredeTyp;
 
-    @Column(name = "VERTRETER_TYP", length = 20)
+    @Column(name = "TITEL_TYP", length = 20)
     private TitelTyp titelTyp;
 
     @Column(name = "VORNAME", length = 100)

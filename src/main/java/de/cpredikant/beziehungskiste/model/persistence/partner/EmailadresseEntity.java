@@ -27,7 +27,7 @@ public class EmailadresseEntity implements Serializable {
     @Column(name = "PARTNER_NR", updatable = false, nullable = false, length = 50)
     private String partnerNr;
 
-    @Column(name = "PARTNER_NR", updatable = false, nullable = false, length = 20)
+    @Column(name = "PARTNER_TYP", updatable = false, nullable = false, length = 20)
     private PartnerTyp partnerTyp;
 
     @Column(name = "EMAIL", nullable = false, length = 1000)

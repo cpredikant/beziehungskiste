@@ -44,7 +44,7 @@ public class KontaktpersonEntity implements Serializable {
     @Column(name = "VORNAME", nullable = false, length = 100)
     private String vorname;
 
-    @Column(name = "VORNAME", nullable = false, length = 100)
+    @Column(name = "NACHNAME", nullable = false, length = 100)
     private String nachname;
 
 }
