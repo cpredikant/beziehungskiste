@@ -18,5 +18,5 @@ public class Emailadresse implements Serializable {
 
     private EmailadresseTyp emailadresseTyp;
 
-    private String hauptEmailadresse;
+    private boolean hauptEmailadresse;
 }

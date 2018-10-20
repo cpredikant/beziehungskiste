@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan("de.cpredikant.beziehungskiste.**.*")
 @ComponentScan("de.cpredikant.beziehungskiste")
-@EnableJpaRepositories(basePackages="de.cpredikant.beziehungskiste")
+@EnableJpaRepositories(basePackages = "de.cpredikant.beziehungskiste")
 public class Application {
 
     public static void main(String[] args) {

@@ -27,7 +27,7 @@ public class Adresse implements Serializable {
 
     private String postfach;
 
-    private boolean hauptadresse;
+    private boolean hauptAdresse;
 
     private boolean ausland;
 

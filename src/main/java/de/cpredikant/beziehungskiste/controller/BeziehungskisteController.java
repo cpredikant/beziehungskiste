@@ -1,19 +1,14 @@
 package de.cpredikant.beziehungskiste.controller;
 
-import de.cpredikant.beziehungskiste.model.enums.partner.AnredeTyp;
-import de.cpredikant.beziehungskiste.model.enums.partner.GeschlechtTyp;
-import de.cpredikant.beziehungskiste.model.enums.partner.TitelTyp;
-import de.cpredikant.beziehungskiste.model.persistence.partner.ArbeitnehmerEntity;
+import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitnehmer;
+import de.cpredikant.beziehungskiste.model.domain.util.PartnerGenerator;
+import de.cpredikant.beziehungskiste.model.domain.util.PartnerNrGenerator;
 import de.cpredikant.beziehungskiste.service.arbeitnehmer.ArbeitnehmerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.persistence.GeneratedValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
-import java.time.LocalDate;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BeziehungskisteController {
@@ -22,28 +17,44 @@ public class BeziehungskisteController {
     private ArbeitnehmerService arbeitnehmerService;
 
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/arbeitnehmer")
-    public void createArbeitnehmer() {
+    @PostMapping("/arbeitnehmer")
+    public Resource<Arbeitnehmer> erstelleArbeitnehmer(@RequestBody(required = false) final Arbeitnehmer arbeitnehmer) {
 
-        ArbeitnehmerEntity ae = new ArbeitnehmerEntity();
+        final Arbeitnehmer an = PartnerGenerator.erzeugeArbeitnehmer(PartnerNrGenerator.generiereArbeitnehmerNummer());
 
-        ae.setAnredeTyp(AnredeTyp.HERR);
-        ae.setArbeitnehmerNr("12345678");
-        ae.setGeburtsdatum(LocalDate.now());
-        ae.setGeburtsort("Hier");
-        ae.setGeschlechtTyp(GeschlechtTyp.MAENNLICH);
-        ae.setNachname("Muster");
-        ae.setVorname("Max");
-        ae.setSozialversicherungsNr("987654321");
-
-        arbeitnehmerService.createArbeitnehmer(ae);
-
+        return new Resource<>(arbeitnehmerService.createArbeitnehmer(an),
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                BeziehungskisteController.class).leseArbeitnehmer(
+                                an.getArbeitnehmerNr())).withRel("arbeitnehmer"));
 
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/arbeitnehmerladen")
-    public ArbeitnehmerEntity readArbeitnehmer() {
-        return arbeitnehmerService.readArbeitnehmer("12345678");
+    @GetMapping("/arbeitnehmer/{arbeitnehmerNr}")
+    public Resource<Arbeitnehmer> leseArbeitnehmer(@PathVariable final String arbeitnehmerNr) {
+
+        return new Resource<>(arbeitnehmerService.readArbeitnehmer(arbeitnehmerNr),
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                BeziehungskisteController.class).leseArbeitnehmer(arbeitnehmerNr)).withRel("arbeitnehmer"));
     }
-    
+
+    @PutMapping("/arbeitnehmer")
+    public Resource<Arbeitnehmer> aktualisiereArbeitnehmer(final Arbeitnehmer arbeitnehmer) {
+
+        //TODO: Nullpointer Bugfixing.
+
+        return new Resource<>(arbeitnehmerService.updateArbeitnehmer(arbeitnehmer),
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                BeziehungskisteController.class).leseArbeitnehmer(arbeitnehmer.getArbeitnehmerNr())).withRel("arbeitnehmer"));
+    }
+
+    @DeleteMapping("/arbeitnehmer/{arbeitnehmerNr}")
+    public ResponseEntity<?> loescheArbeitnehmer(@PathVariable final String arbeitnehmerNr) {
+        //TODO: Implementieren
+        return ResponseEntity.noContent().build();
+    }
+
+
 }

@@ -1,11 +1,13 @@
 package de.cpredikant.beziehungskiste.service.arbeitnehmer;
 
-import de.cpredikant.beziehungskiste.model.persistence.partner.ArbeitnehmerEntity;
+import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitnehmer;
 
 public interface ArbeitnehmerService {
 
-    ArbeitnehmerEntity createArbeitnehmer(ArbeitnehmerEntity arbeitnehmerEntity);
+    Arbeitnehmer createArbeitnehmer(Arbeitnehmer arbeitnehmer);
 
-    ArbeitnehmerEntity readArbeitnehmer(String arbeitnehmerNr);
+    Arbeitnehmer updateArbeitnehmer(Arbeitnehmer arbeitnehmer);
+
+    Arbeitnehmer readArbeitnehmer(String arbeitnehmerNr);
 
 }
