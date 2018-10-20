@@ -15,8 +15,9 @@ public final class PartnerGenerator {
     }
 
 
-    public static Arbeitnehmer erzeugeArbeitnehmer(String arbeitnehmerNr) {
-        Arbeitnehmer arbeitnehmer = new Arbeitnehmer(arbeitnehmerNr, null);
+    public static Arbeitnehmer erzeugeArbeitnehmer(final String arbeitnehmerNr) {
+
+        final Arbeitnehmer arbeitnehmer = new Arbeitnehmer(arbeitnehmerNr, null);
 
         arbeitnehmer.setAnredeTyp(AnredeTyp.HERR);
         arbeitnehmer.setTitelTyp(TitelTyp.PROFESSOR);
@@ -27,7 +28,7 @@ public final class PartnerGenerator {
         arbeitnehmer.setVorname("Max");
         arbeitnehmer.setSozialversicherungsNr("987654321");
 
-        Adresse adresse = new Adresse(null, null);
+        final Adresse adresse = new Adresse(null, null);
 
         adresse.setStrasse("Meine Straße");
         adresse.setHausNr("99a");
@@ -39,16 +40,16 @@ public final class PartnerGenerator {
         adresse.setAusland(false);
         adresse.setHauptAdresse(true);
 
-        Kontaktdaten kontaktdaten = new Kontaktdaten(null, null);
+        final Kontaktdaten kontaktdaten = new Kontaktdaten(null, null);
         kontaktdaten.setTelefonNr("+49643112345678");
         kontaktdaten.setHauptKontaktdaten(true);
 
-        Emailadresse emailadresse = new Emailadresse(null, null);
+        final Emailadresse emailadresse = new Emailadresse(null, null);
         emailadresse.setEmail("test@test.de");
         emailadresse.setEmailadresseTyp(EmailadresseTyp.KONTAKT);
         emailadresse.setHauptEmailadresse(true);
 
-        Bankkonto bankkonto = new Bankkonto(null, null);
+        final Bankkonto bankkonto = new Bankkonto(null, null);
 
         bankkonto.setKontoinhaber(arbeitnehmer.getVorname() + " " + arbeitnehmer.getNachname());
 

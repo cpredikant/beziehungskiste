@@ -10,9 +10,9 @@ public final class BankkontoMapper {
         // Mapper
     }
 
-    public static BankkontoEntity mappe(Bankkonto bankkonto, PartnerTyp partnerTyp, String partnerNr) {
+    public static BankkontoEntity mappe(final Bankkonto bankkonto, final PartnerTyp partnerTyp, final String partnerNr) {
 
-        BankkontoEntity be = new BankkontoEntity();
+        final BankkontoEntity be = new BankkontoEntity();
 
         be.setId(bankkonto.getId());
         be.setVersion(bankkonto.getVersion());
@@ -34,13 +34,13 @@ public final class BankkontoMapper {
         return be;
     }
 
-    public static Bankkonto mappe(BankkontoEntity bankkontoEntity) {
+    public static Bankkonto mappe(final BankkontoEntity bankkontoEntity) {
 
         if (bankkontoEntity == null) {
             return null;
         }
 
-        Bankkonto b = new Bankkonto(bankkontoEntity.getId(), bankkontoEntity.getVersion());
+        final Bankkonto b = new Bankkonto(bankkontoEntity.getId(), bankkontoEntity.getVersion());
 
         b.setKontoinhaber(bankkontoEntity.getKontoinhaber());
         b.setBic(bankkontoEntity.getBic());

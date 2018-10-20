@@ -9,13 +9,13 @@ public final class ArbeitnehmerMapper {
         // Mapper
     }
 
-    public static ArbeitnehmerEntity mappe(Arbeitnehmer arbeitnehmer) {
+    public static ArbeitnehmerEntity mappe(final Arbeitnehmer arbeitnehmer) {
 
         if (arbeitnehmer == null) {
             return null;
         }
 
-        ArbeitnehmerEntity ae = new ArbeitnehmerEntity();
+        final ArbeitnehmerEntity ae = new ArbeitnehmerEntity();
 
         ae.setArbeitnehmerNr(arbeitnehmer.getArbeitnehmerNr());
         ae.setVersion(arbeitnehmer.getVersion());
@@ -31,13 +31,13 @@ public final class ArbeitnehmerMapper {
         return ae;
     }
 
-    public static Arbeitnehmer mappe(ArbeitnehmerEntity arbeitnehmerEntity, Adresse adresse, Kontaktdaten kontaktdaten, Emailadresse emailadresse, Bankkonto bankkonto) {
+    public static Arbeitnehmer mappe(final ArbeitnehmerEntity arbeitnehmerEntity, final Adresse adresse, final Kontaktdaten kontaktdaten, final Emailadresse emailadresse, final Bankkonto bankkonto) {
 
         if (arbeitnehmerEntity == null) {
             return null;
         }
 
-        Arbeitnehmer a = new Arbeitnehmer(arbeitnehmerEntity.getArbeitnehmerNr(), arbeitnehmerEntity.getVersion());
+        final Arbeitnehmer a = new Arbeitnehmer(arbeitnehmerEntity.getArbeitnehmerNr(), arbeitnehmerEntity.getVersion());
 
         a.setAnredeTyp(arbeitnehmerEntity.getAnredeTyp());
         a.setTitelTyp(arbeitnehmerEntity.getTitelTyp());
@@ -56,13 +56,13 @@ public final class ArbeitnehmerMapper {
         return a;
     }
 
-    public static Arbeitnehmer mappe(ArbeitnehmerEntity arbeitnehmerEntity) {
+    public static Arbeitnehmer mappe(final ArbeitnehmerEntity arbeitnehmerEntity) {
 
         if (arbeitnehmerEntity == null) {
             return null;
         }
 
-        Arbeitnehmer a = new Arbeitnehmer(arbeitnehmerEntity.getArbeitnehmerNr(), arbeitnehmerEntity.getVersion());
+        final Arbeitnehmer a = new Arbeitnehmer(arbeitnehmerEntity.getArbeitnehmerNr(), arbeitnehmerEntity.getVersion());
 
         a.setAnredeTyp(arbeitnehmerEntity.getAnredeTyp());
         a.setTitelTyp(arbeitnehmerEntity.getTitelTyp());

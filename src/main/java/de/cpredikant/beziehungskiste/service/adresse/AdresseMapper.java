@@ -10,9 +10,9 @@ public final class AdresseMapper {
         // Mapper
     }
 
-    public static AdresseEntity mappe(Adresse adresse, PartnerTyp partnerTyp, String partnerNr) {
+    public static AdresseEntity mappe(final Adresse adresse, final PartnerTyp partnerTyp, final String partnerNr) {
 
-        AdresseEntity ae = new AdresseEntity();
+        final AdresseEntity ae = new AdresseEntity();
 
         ae.setId(adresse.getId());
         ae.setVersion(adresse.getVersion());
@@ -33,13 +33,13 @@ public final class AdresseMapper {
         return ae;
     }
 
-    public static Adresse mappe(AdresseEntity adresseEntity) {
+    public static Adresse mappe(final AdresseEntity adresseEntity) {
 
         if (adresseEntity == null) {
             return null;
         }
 
-        Adresse a = new Adresse(adresseEntity.getId(), adresseEntity.getVersion());
+        final Adresse a = new Adresse(adresseEntity.getId(), adresseEntity.getVersion());
 
         a.setStrasse(adresseEntity.getStrasse());
         a.setPostfach(adresseEntity.getPostfach());

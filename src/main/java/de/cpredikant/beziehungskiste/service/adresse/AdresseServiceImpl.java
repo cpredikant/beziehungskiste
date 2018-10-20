@@ -11,12 +11,12 @@ public class AdresseServiceImpl implements AdresseService {
     private AdresseRepository adresseRepository;
 
     @Override
-    public AdresseEntity createAdresse(AdresseEntity adresseEntity) {
+    public AdresseEntity createAdresse(final AdresseEntity adresseEntity) {
         return adresseRepository.save(adresseEntity);
     }
 
     @Override
-    public AdresseEntity findByPartnerNr(String partnerNr) {
+    public AdresseEntity findByPartnerNr(final String partnerNr) {
         return null;
     }
 

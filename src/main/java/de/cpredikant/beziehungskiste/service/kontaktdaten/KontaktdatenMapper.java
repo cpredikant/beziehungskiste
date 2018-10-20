@@ -10,9 +10,9 @@ public final class KontaktdatenMapper {
         // Mapper
     }
 
-    public static KontaktdatenEntity mappe(Kontaktdaten kontaktdaten, PartnerTyp partnerTyp, String partnerNr) {
+    public static KontaktdatenEntity mappe(final Kontaktdaten kontaktdaten, final PartnerTyp partnerTyp, final String partnerNr) {
 
-        KontaktdatenEntity ke = new KontaktdatenEntity();
+        final KontaktdatenEntity ke = new KontaktdatenEntity();
 
         ke.setId(kontaktdaten.getId());
         ke.setVersion(kontaktdaten.getVersion());
@@ -28,13 +28,13 @@ public final class KontaktdatenMapper {
         return ke;
     }
 
-    public static Kontaktdaten mappe(KontaktdatenEntity kontaktdatenEntity) {
+    public static Kontaktdaten mappe(final KontaktdatenEntity kontaktdatenEntity) {
 
         if (kontaktdatenEntity == null) {
             return null;
         }
 
-        Kontaktdaten k = new Kontaktdaten(kontaktdatenEntity.getId(), kontaktdatenEntity.getVersion());
+        final Kontaktdaten k = new Kontaktdaten(kontaktdatenEntity.getId(), kontaktdatenEntity.getVersion());
 
         k.setTelefonNr(kontaktdatenEntity.getTelefonNr());
         k.setMobilNr(kontaktdatenEntity.getMobilNr());

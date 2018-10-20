@@ -10,9 +10,9 @@ public final class EmailadresseMapper {
         // Mapper
     }
 
-    public static EmailadresseEntity mappe(Emailadresse emailadresse, PartnerTyp partnerTyp, String partnerNr) {
+    public static EmailadresseEntity mappe(final Emailadresse emailadresse, final PartnerTyp partnerTyp, final String partnerNr) {
 
-        EmailadresseEntity ee = new EmailadresseEntity();
+        final EmailadresseEntity ee = new EmailadresseEntity();
 
         ee.setId(emailadresse.getId());
         ee.setVersion(emailadresse.getVersion());
@@ -26,13 +26,13 @@ public final class EmailadresseMapper {
         return ee;
     }
 
-    public static Emailadresse mappe(EmailadresseEntity emailadresseEntity) {
+    public static Emailadresse mappe(final EmailadresseEntity emailadresseEntity) {
 
         if (emailadresseEntity == null) {
             return null;
         }
 
-        Emailadresse e = new Emailadresse(emailadresseEntity.getId(), emailadresseEntity.getVersion());
+        final Emailadresse e = new Emailadresse(emailadresseEntity.getId(), emailadresseEntity.getVersion());
 
         e.setEmail(emailadresseEntity.getEmail());
         e.setEmailadresseTyp(emailadresseEntity.getEmailadresseTyp());
