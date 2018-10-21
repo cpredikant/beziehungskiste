@@ -20,43 +20,81 @@ public class ArbeitnehmerController {
     @PostMapping("/arbeitnehmer")
     public Resource<Arbeitnehmer> erstelleArbeitnehmer(@RequestBody(required = false) final Arbeitnehmer arbeitnehmer) {
 
-        final Arbeitnehmer an = PartnerGenerator.erzeugeArbeitnehmer(PartnerNrGenerator.generiereArbeitnehmerNummer());
+        final Arbeitnehmer createdArbeitnehmer;
 
-        return new Resource<>(arbeitnehmerService.createArbeitnehmer(an),
+        if (arbeitnehmer == null) {
+            createdArbeitnehmer = arbeitnehmerService.createArbeitnehmer(
+                    PartnerGenerator.erzeugeArbeitnehmer(
+                            PartnerNrGenerator.generiereArbeitnehmerNummer()));
+        } else {
+            createdArbeitnehmer = arbeitnehmerService.createArbeitnehmer(arbeitnehmer);
+        }
+
+
+        return new Resource<>(createdArbeitnehmer,
                 ControllerLinkBuilder.linkTo(
                         ControllerLinkBuilder.methodOn(
                                 ArbeitnehmerController.class).leseArbeitnehmer(
-                                an.getArbeitnehmerNr())).withRel("arbeitnehmer")
+                                createdArbeitnehmer.getArbeitnehmerNr())).withRel("get"),
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                ArbeitnehmerController.class).aktualisiereArbeitnehmer(
+                                createdArbeitnehmer)).withRel("put"),
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                ArbeitnehmerController.class).loescheArbeitnehmer(
+                                createdArbeitnehmer.getArbeitnehmerNr())).withRel("delete")
         );
 
     }
 
     @GetMapping("/arbeitnehmer/{arbeitnehmerNr}")
-    public Resource<Arbeitnehmer> leseArbeitnehmer(@PathVariable final String arbeitnehmerNr) {
+    public Resource<Arbeitnehmer> leseArbeitnehmer(
+            @PathVariable final String arbeitnehmerNr) {
 
-        return new Resource<>(arbeitnehmerService.readArbeitnehmer(arbeitnehmerNr),
+        final Arbeitnehmer arbeitnehmer = arbeitnehmerService.readArbeitnehmer(arbeitnehmerNr);
+
+        return new Resource<>(arbeitnehmer,
                 ControllerLinkBuilder.linkTo(
                         ControllerLinkBuilder.methodOn(
-                                ArbeitnehmerController.class).leseArbeitnehmer(arbeitnehmerNr)).withRel("arbeitnehmer"));
+                                ArbeitnehmerController.class).leseArbeitnehmer(
+                                arbeitnehmerNr)).withSelfRel(),
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                ArbeitnehmerController.class).loescheArbeitnehmer(
+                                arbeitnehmer.getArbeitnehmerNr())).withRel("delete"));
     }
 
     @PutMapping("/arbeitnehmer")
-    public Resource<Arbeitnehmer> aktualisiereArbeitnehmer(@RequestBody final Arbeitnehmer arbeitnehmer) {
+    public Resource<Arbeitnehmer> aktualisiereArbeitnehmer(
+            @RequestBody final Arbeitnehmer arbeitnehmer) {
 
-        return new Resource<>(arbeitnehmerService.updateArbeitnehmer(arbeitnehmer),
+        final Arbeitnehmer updatedArbeitnehmer = arbeitnehmerService.updateArbeitnehmer(arbeitnehmer);
+
+        return new Resource<>(updatedArbeitnehmer,
                 ControllerLinkBuilder.linkTo(
                         ControllerLinkBuilder.methodOn(
-                                ArbeitnehmerController.class).leseArbeitnehmer(arbeitnehmer.getArbeitnehmerNr())).withRel("arbeitnehmer"));
+                                ArbeitnehmerController.class).leseArbeitnehmer(
+                                updatedArbeitnehmer.getArbeitnehmerNr())).withRel("self"),
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                ArbeitnehmerController.class).loescheArbeitnehmer(
+                                updatedArbeitnehmer.getArbeitnehmerNr())).withRel("delete"));
     }
 
     @DeleteMapping("/arbeitnehmer/{arbeitnehmerNr}")
-    public ResponseEntity<?> loescheArbeitnehmer(@PathVariable final String arbeitnehmerNr) {
+    public Resource<?> loescheArbeitnehmer(
+            @PathVariable final String arbeitnehmerNr) {
         arbeitnehmerService.deleteArbeitnehmerById(arbeitnehmerNr);
-        return ResponseEntity.noContent().build();
+        return new Resource(Arbeitnehmer.class,
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                ArbeitnehmerController.class).erstelleArbeitnehmer(new Arbeitnehmer())).withRel("post"));
     }
 
     @DeleteMapping("/arbeitnehmer")
-    public ResponseEntity<?> loescheArbeitnehmer(@RequestBody final Arbeitnehmer arbeitnehmer) {
+    public ResponseEntity<?> loescheArbeitnehmer(
+            @RequestBody final Arbeitnehmer arbeitnehmer) {
         arbeitnehmerService.deleteArbeitnehmer(arbeitnehmer);
         return ResponseEntity.noContent().build();
     }
