@@ -37,7 +37,10 @@ public final class ArbeitnehmerMapper {
             return null;
         }
 
-        final Arbeitnehmer a = new Arbeitnehmer(arbeitnehmerEntity.getArbeitnehmerNr(), arbeitnehmerEntity.getVersion());
+        final Arbeitnehmer a = new Arbeitnehmer();
+
+        a.setArbeitnehmerNr(arbeitnehmerEntity.getArbeitnehmerNr());
+        a.setVersion(arbeitnehmerEntity.getVersion());
 
         a.setAnredeTyp(arbeitnehmerEntity.getAnredeTyp());
         a.setTitelTyp(arbeitnehmerEntity.getTitelTyp());
@@ -62,7 +65,10 @@ public final class ArbeitnehmerMapper {
             return null;
         }
 
-        final Arbeitnehmer a = new Arbeitnehmer(arbeitnehmerEntity.getArbeitnehmerNr(), arbeitnehmerEntity.getVersion());
+        final Arbeitnehmer a = new Arbeitnehmer();
+
+        a.setArbeitnehmerNr(arbeitnehmerEntity.getArbeitnehmerNr());
+        a.setVersion(arbeitnehmerEntity.getVersion());
 
         a.setAnredeTyp(arbeitnehmerEntity.getAnredeTyp());
         a.setTitelTyp(arbeitnehmerEntity.getTitelTyp());

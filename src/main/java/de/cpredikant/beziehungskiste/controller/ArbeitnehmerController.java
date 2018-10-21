@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class BeziehungskisteController {
+public class ArbeitnehmerController {
 
     @Autowired
     private ArbeitnehmerService arbeitnehmerService;
@@ -25,8 +25,9 @@ public class BeziehungskisteController {
         return new Resource<>(arbeitnehmerService.createArbeitnehmer(an),
                 ControllerLinkBuilder.linkTo(
                         ControllerLinkBuilder.methodOn(
-                                BeziehungskisteController.class).leseArbeitnehmer(
-                                an.getArbeitnehmerNr())).withRel("arbeitnehmer"));
+                                ArbeitnehmerController.class).leseArbeitnehmer(
+                                an.getArbeitnehmerNr())).withRel("arbeitnehmer")
+        );
 
     }
 
@@ -36,23 +37,27 @@ public class BeziehungskisteController {
         return new Resource<>(arbeitnehmerService.readArbeitnehmer(arbeitnehmerNr),
                 ControllerLinkBuilder.linkTo(
                         ControllerLinkBuilder.methodOn(
-                                BeziehungskisteController.class).leseArbeitnehmer(arbeitnehmerNr)).withRel("arbeitnehmer"));
+                                ArbeitnehmerController.class).leseArbeitnehmer(arbeitnehmerNr)).withRel("arbeitnehmer"));
     }
 
     @PutMapping("/arbeitnehmer")
-    public Resource<Arbeitnehmer> aktualisiereArbeitnehmer(final Arbeitnehmer arbeitnehmer) {
-
-        //TODO: Nullpointer Bugfixing.
+    public Resource<Arbeitnehmer> aktualisiereArbeitnehmer(@RequestBody final Arbeitnehmer arbeitnehmer) {
 
         return new Resource<>(arbeitnehmerService.updateArbeitnehmer(arbeitnehmer),
                 ControllerLinkBuilder.linkTo(
                         ControllerLinkBuilder.methodOn(
-                                BeziehungskisteController.class).leseArbeitnehmer(arbeitnehmer.getArbeitnehmerNr())).withRel("arbeitnehmer"));
+                                ArbeitnehmerController.class).leseArbeitnehmer(arbeitnehmer.getArbeitnehmerNr())).withRel("arbeitnehmer"));
     }
 
     @DeleteMapping("/arbeitnehmer/{arbeitnehmerNr}")
     public ResponseEntity<?> loescheArbeitnehmer(@PathVariable final String arbeitnehmerNr) {
-        //TODO: Implementieren
+        arbeitnehmerService.deleteArbeitnehmerById(arbeitnehmerNr);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/arbeitnehmer")
+    public ResponseEntity<?> loescheArbeitnehmer(@RequestBody final Arbeitnehmer arbeitnehmer) {
+        arbeitnehmerService.deleteArbeitnehmer(arbeitnehmer);
         return ResponseEntity.noContent().build();
     }
 

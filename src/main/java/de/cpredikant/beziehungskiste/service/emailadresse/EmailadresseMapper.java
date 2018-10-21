@@ -32,7 +32,10 @@ public final class EmailadresseMapper {
             return null;
         }
 
-        final Emailadresse e = new Emailadresse(emailadresseEntity.getId(), emailadresseEntity.getVersion());
+        final Emailadresse e = new Emailadresse();
+
+        e.setId(emailadresseEntity.getId());
+        e.setVersion(emailadresseEntity.getVersion());
 
         e.setEmail(emailadresseEntity.getEmail());
         e.setEmailadresseTyp(emailadresseEntity.getEmailadresseTyp());

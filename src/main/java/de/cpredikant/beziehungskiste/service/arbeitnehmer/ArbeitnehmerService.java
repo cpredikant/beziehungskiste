@@ -10,4 +10,8 @@ public interface ArbeitnehmerService {
 
     Arbeitnehmer readArbeitnehmer(String arbeitnehmerNr);
 
+    void deleteArbeitnehmerById(String arbeitnehmerNr);
+
+    void deleteArbeitnehmer(Arbeitnehmer arbeitnehmer);
 }
+

@@ -39,7 +39,10 @@ public final class AdresseMapper {
             return null;
         }
 
-        final Adresse a = new Adresse(adresseEntity.getId(), adresseEntity.getVersion());
+        final Adresse a = new Adresse();
+
+        a.setId(adresseEntity.getId());
+        a.setVersion(adresseEntity.getVersion());
 
         a.setStrasse(adresseEntity.getStrasse());
         a.setPostfach(adresseEntity.getPostfach());

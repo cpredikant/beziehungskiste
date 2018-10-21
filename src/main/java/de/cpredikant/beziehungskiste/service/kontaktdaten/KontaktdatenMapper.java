@@ -34,7 +34,10 @@ public final class KontaktdatenMapper {
             return null;
         }
 
-        final Kontaktdaten k = new Kontaktdaten(kontaktdatenEntity.getId(), kontaktdatenEntity.getVersion());
+        final Kontaktdaten k = new Kontaktdaten();
+
+        k.setId(kontaktdatenEntity.getId());
+        k.setVersion(kontaktdatenEntity.getVersion());
 
         k.setTelefonNr(kontaktdatenEntity.getTelefonNr());
         k.setMobilNr(kontaktdatenEntity.getMobilNr());

@@ -40,7 +40,10 @@ public final class BankkontoMapper {
             return null;
         }
 
-        final Bankkonto b = new Bankkonto(bankkontoEntity.getId(), bankkontoEntity.getVersion());
+        final Bankkonto b = new Bankkonto();
+
+        b.setId(bankkontoEntity.getId());
+        b.setVersion(bankkontoEntity.getVersion());
 
         b.setKontoinhaber(bankkontoEntity.getKontoinhaber());
         b.setBic(bankkontoEntity.getBic());

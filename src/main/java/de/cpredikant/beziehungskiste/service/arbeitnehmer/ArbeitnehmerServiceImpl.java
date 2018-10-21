@@ -72,4 +72,22 @@ public class ArbeitnehmerServiceImpl implements ArbeitnehmerService {
         return ArbeitnehmerMapper.mappe(arbeitnehmerRepository.findById(arbeitnehmerNr).orElse(null), adresse, kontaktdaten, emailadresse, bankkonto);
     }
 
+    @Override
+    public void deleteArbeitnehmerById(final String arbeitnehmerNr) {
+
+        final Arbeitnehmer arbeitnehmer = readArbeitnehmer(arbeitnehmerNr);
+        deleteArbeitnehmer(arbeitnehmer);
+    }
+
+    @Override
+    public void deleteArbeitnehmer(final Arbeitnehmer arbeitnehmer) {
+
+        adresseRepository.deleteById(arbeitnehmer.getAdresse().getId());
+        emailadresseRepository.deleteById(arbeitnehmer.getEmailadresse().getId());
+        kontaktdatenRepository.deleteById(arbeitnehmer.getKontaktdaten().getId());
+        bankkontoRepository.deleteById(arbeitnehmer.getBankkonto().getId());
+        arbeitnehmerRepository.deleteById(arbeitnehmer.getArbeitnehmerNr());
+
+    }
+
 }
