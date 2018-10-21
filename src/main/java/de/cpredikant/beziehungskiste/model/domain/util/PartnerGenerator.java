@@ -1,10 +1,7 @@
 package de.cpredikant.beziehungskiste.model.domain.util;
 
 import de.cpredikant.beziehungskiste.model.domain.partner.*;
-import de.cpredikant.beziehungskiste.model.enums.partner.AnredeTyp;
-import de.cpredikant.beziehungskiste.model.enums.partner.EmailadresseTyp;
-import de.cpredikant.beziehungskiste.model.enums.partner.GeschlechtTyp;
-import de.cpredikant.beziehungskiste.model.enums.partner.TitelTyp;
+import de.cpredikant.beziehungskiste.model.enums.partner.*;
 
 import java.time.LocalDate;
 
@@ -69,5 +66,17 @@ public final class PartnerGenerator {
         arbeitnehmer.setEmailadresse(emailadresse);
         arbeitnehmer.setBankkonto(bankkonto);
         return arbeitnehmer;
+    }
+
+    public static Arbeitgeber erzeugeArbeitgeber(final String arbeitgeberNr) {
+
+        final Arbeitgeber a = new Arbeitgeber();
+
+        a.setArbeitgeberNr(arbeitgeberNr);
+        a.setAnredeTyp(AnredeTyp.FIRMA);
+        a.setRechtsformTyp(RechtsformTyp.GMBH);
+        a.setFirmenname("Janosh & Schnuddelbuddel Hausbau");
+
+        return a;
     }
 }

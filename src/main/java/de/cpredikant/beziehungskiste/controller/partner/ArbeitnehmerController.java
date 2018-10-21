@@ -1,4 +1,4 @@
-package de.cpredikant.beziehungskiste.controller;
+package de.cpredikant.beziehungskiste.controller.partner;
 
 import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitnehmer;
 import de.cpredikant.beziehungskiste.model.domain.util.PartnerGenerator;
