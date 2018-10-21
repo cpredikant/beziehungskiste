@@ -86,7 +86,8 @@ public class ArbeitnehmerController {
     public Resource<?> loescheArbeitnehmer(
             @PathVariable final String arbeitnehmerNr) {
         arbeitnehmerService.deleteArbeitnehmerById(arbeitnehmerNr);
-        return new Resource(Arbeitnehmer.class,
+
+        return new Resource<>(Arbeitnehmer.class,
                 ControllerLinkBuilder.linkTo(
                         ControllerLinkBuilder.methodOn(
                                 ArbeitnehmerController.class).erstelleArbeitnehmer(new Arbeitnehmer())).withRel("post"));
