@@ -1,4 +1,4 @@
-package de.cpredikant.beziehungskiste.service.bankkonto;
+package de.cpredikant.beziehungskiste.service.partner.bankkonto;
 
 import de.cpredikant.beziehungskiste.model.persistence.partner.BankkontoEntity;
 import org.springframework.data.repository.CrudRepository;

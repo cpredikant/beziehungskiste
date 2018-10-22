@@ -1,16 +1,16 @@
-package de.cpredikant.beziehungskiste.service.arbeitnehmer;
+package de.cpredikant.beziehungskiste.service.partner.arbeitnehmer;
 
 import de.cpredikant.beziehungskiste.model.domain.partner.*;
 import de.cpredikant.beziehungskiste.model.enums.partner.PartnerTyp;
 import de.cpredikant.beziehungskiste.model.persistence.partner.*;
-import de.cpredikant.beziehungskiste.service.adresse.AdresseMapper;
-import de.cpredikant.beziehungskiste.service.adresse.AdresseRepository;
-import de.cpredikant.beziehungskiste.service.bankkonto.BankkontoMapper;
-import de.cpredikant.beziehungskiste.service.bankkonto.BankkontoRepository;
-import de.cpredikant.beziehungskiste.service.emailadresse.EmailadresseMapper;
-import de.cpredikant.beziehungskiste.service.emailadresse.EmailadresseRepository;
-import de.cpredikant.beziehungskiste.service.kontaktdaten.KontaktdatenMapper;
-import de.cpredikant.beziehungskiste.service.kontaktdaten.KontaktdatenRepository;
+import de.cpredikant.beziehungskiste.service.partner.adresse.AdresseMapper;
+import de.cpredikant.beziehungskiste.service.partner.adresse.AdresseRepository;
+import de.cpredikant.beziehungskiste.service.partner.bankkonto.BankkontoMapper;
+import de.cpredikant.beziehungskiste.service.partner.bankkonto.BankkontoRepository;
+import de.cpredikant.beziehungskiste.service.partner.emailadresse.EmailadresseMapper;
+import de.cpredikant.beziehungskiste.service.partner.emailadresse.EmailadresseRepository;
+import de.cpredikant.beziehungskiste.service.partner.kontaktdaten.KontaktdatenMapper;
+import de.cpredikant.beziehungskiste.service.partner.kontaktdaten.KontaktdatenRepository;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package de.cpredikant.beziehungskiste.service.arbeitnehmer;
+package de.cpredikant.beziehungskiste.service.partner.arbeitnehmer;
 
 import de.cpredikant.beziehungskiste.model.domain.partner.*;
 import de.cpredikant.beziehungskiste.model.persistence.partner.ArbeitnehmerEntity;

@@ -4,7 +4,7 @@ import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitgeber;
 import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitnehmer;
 import de.cpredikant.beziehungskiste.model.domain.util.PartnerGenerator;
 import de.cpredikant.beziehungskiste.model.domain.util.PartnerNrGenerator;
-import de.cpredikant.beziehungskiste.service.arbeitgeber.ArbeitgeberService;
+import de.cpredikant.beziehungskiste.service.partner.arbeitgeber.ArbeitgeberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;

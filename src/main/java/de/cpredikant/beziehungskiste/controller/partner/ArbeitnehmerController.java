@@ -3,7 +3,7 @@ package de.cpredikant.beziehungskiste.controller.partner;
 import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitnehmer;
 import de.cpredikant.beziehungskiste.model.domain.util.PartnerGenerator;
 import de.cpredikant.beziehungskiste.model.domain.util.PartnerNrGenerator;
-import de.cpredikant.beziehungskiste.service.arbeitnehmer.ArbeitnehmerService;
+import de.cpredikant.beziehungskiste.service.partner.arbeitnehmer.ArbeitnehmerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;

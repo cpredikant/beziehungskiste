@@ -1,10 +1,10 @@
-package de.cpredikant.beziehungskiste.service.arbeitgeber;
+package de.cpredikant.beziehungskiste.service.partner.arbeitgeber;
 
 import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitgeber;
-import de.cpredikant.beziehungskiste.service.adresse.AdresseRepository;
-import de.cpredikant.beziehungskiste.service.bankkonto.BankkontoRepository;
-import de.cpredikant.beziehungskiste.service.emailadresse.EmailadresseRepository;
-import de.cpredikant.beziehungskiste.service.kontaktdaten.KontaktdatenRepository;
+import de.cpredikant.beziehungskiste.service.partner.adresse.AdresseRepository;
+import de.cpredikant.beziehungskiste.service.partner.bankkonto.BankkontoRepository;
+import de.cpredikant.beziehungskiste.service.partner.emailadresse.EmailadresseRepository;
+import de.cpredikant.beziehungskiste.service.partner.kontaktdaten.KontaktdatenRepository;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

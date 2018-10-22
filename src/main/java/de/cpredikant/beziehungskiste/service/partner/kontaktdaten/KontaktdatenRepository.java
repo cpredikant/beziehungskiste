@@ -1,4 +1,4 @@
-package de.cpredikant.beziehungskiste.service.kontaktdaten;
+package de.cpredikant.beziehungskiste.service.partner.kontaktdaten;
 
 import de.cpredikant.beziehungskiste.model.persistence.partner.KontaktdatenEntity;
 import org.springframework.data.repository.CrudRepository;

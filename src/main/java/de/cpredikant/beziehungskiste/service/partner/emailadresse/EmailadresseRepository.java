@@ -1,4 +1,4 @@
-package de.cpredikant.beziehungskiste.service.emailadresse;
+package de.cpredikant.beziehungskiste.service.partner.emailadresse;
 
 import de.cpredikant.beziehungskiste.model.persistence.partner.EmailadresseEntity;
 import org.springframework.data.repository.CrudRepository;

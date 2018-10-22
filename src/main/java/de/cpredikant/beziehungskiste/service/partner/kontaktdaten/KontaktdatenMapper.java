@@ -1,4 +1,4 @@
-package de.cpredikant.beziehungskiste.service.kontaktdaten;
+package de.cpredikant.beziehungskiste.service.partner.kontaktdaten;
 
 import de.cpredikant.beziehungskiste.model.domain.partner.Kontaktdaten;
 import de.cpredikant.beziehungskiste.model.enums.partner.PartnerTyp;
