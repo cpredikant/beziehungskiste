@@ -11,4 +11,6 @@ public interface EmailadresseRepository extends CrudRepository<EmailadresseEntit
 
     Optional<EmailadresseEntity> findByPartnerNr(String partnerNr);
 
+    Iterable<EmailadresseEntity> findAllByPartnerNr(String partnerNr);
+
 }

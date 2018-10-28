@@ -119,7 +119,26 @@ public class ArbeitgeberServiceImpl implements ArbeitgeberService {
     @Override
     public Arbeitgeber readArbeitgeber(final String arbeitgeberNr) {
 
-        return ArbeitgeberMapper.mappe(arbeitgeberRepository.findById(arbeitgeberNr).orElse(null));
+        final Adresse adresse = AdresseMapper.mappe(adresseRepository.findByPartnerNr(arbeitgeberNr).orElse(null));
+
+        final List<Kontaktdaten> kontaktdatenListe = KontaktdatenMapper.mappe(kontaktdatenRepository.findAllByPartnerNr(arbeitgeberNr));
+
+        final List<Emailadresse> emailadresseListe = EmailadresseMapper.mappe(emailadresseRepository.findAllByPartnerNr(arbeitgeberNr));
+
+        final List<Kontaktperson> kontaktpersonListe = KontaktpersonMapper.mappe(kontaktpersonRepository.findAllByPartnerNr(arbeitgeberNr));
+
+        final List<Bankkonto> bankkontoListe = BankkontoMapper.mappe(bankkontoRepository.findAllByPartnerNr(arbeitgeberNr));
+
+        final List<Vertreter> vertreterListe = VertreterMapper.mappe(vertreterRepository.findAllByPartnerNr(arbeitgeberNr));
+
+        return ArbeitgeberMapper.mappe(
+                arbeitgeberRepository.findById(arbeitgeberNr).orElse(null),
+                adresse,
+                kontaktdatenListe,
+                emailadresseListe,
+                kontaktpersonListe,
+                bankkontoListe,
+                vertreterListe);
     }
 
     @Override
@@ -131,6 +150,36 @@ public class ArbeitgeberServiceImpl implements ArbeitgeberService {
 
     @Override
     public void deleteArbeitgeber(final Arbeitgeber arbeitgeber) {
+
+        adresseRepository.delete(AdresseMapper.mappe(
+                arbeitgeber.getAdresse(),
+                PartnerTyp.ARBEITGEBER,
+                arbeitgeber.getArbeitgeberNr()));
+
+        kontaktdatenRepository.deleteAll(KontaktdatenMapper.mappe(
+                arbeitgeber.getKontaktdaten(),
+                PartnerTyp.ARBEITGEBER,
+                arbeitgeber.getArbeitgeberNr()));
+
+        emailadresseRepository.deleteAll(EmailadresseMapper.mappe(
+                arbeitgeber.getEmailadressen(),
+                PartnerTyp.ARBEITGEBER,
+                arbeitgeber.getArbeitgeberNr()));
+
+        kontaktpersonRepository.deleteAll(KontaktpersonMapper.mappe(
+                arbeitgeber.getKontaktpersonen(),
+                PartnerTyp.ARBEITGEBER,
+                arbeitgeber.getArbeitgeberNr()));
+
+        bankkontoRepository.deleteAll(BankkontoMapper.mappe(
+                arbeitgeber.getBankkonten(),
+                PartnerTyp.ARBEITGEBER,
+                arbeitgeber.getArbeitgeberNr()));
+
+        vertreterRepository.deleteAll(VertreterMapper.mappe(
+                arbeitgeber.getVertreter(),
+                PartnerTyp.ARBEITGEBER,
+                arbeitgeber.getArbeitgeberNr()));
 
         arbeitgeberRepository.deleteById(arbeitgeber.getArbeitgeberNr());
 

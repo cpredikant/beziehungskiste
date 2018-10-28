@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface KontaktpersonRepository extends CrudRepository<KontaktpersonEntity, Long> {
 
+    Iterable<KontaktpersonEntity> findAllByPartnerNr(String partnerNr);
+
 }

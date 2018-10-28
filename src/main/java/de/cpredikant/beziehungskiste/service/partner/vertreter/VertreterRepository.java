@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VertreterRepository extends CrudRepository<VertreterEntity, Long> {
 
+    Iterable<VertreterEntity> findAllByPartnerNr(String partnerNr);
+
 }

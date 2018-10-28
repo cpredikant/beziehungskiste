@@ -11,4 +11,6 @@ public interface KontaktdatenRepository extends CrudRepository<KontaktdatenEntit
 
     Optional<KontaktdatenEntity> findByPartnerNr(String partnerNr);
 
+    Iterable<KontaktdatenEntity> findAllByPartnerNr(String partnerNr);
+
 }
