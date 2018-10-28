@@ -1,6 +1,5 @@
 package de.cpredikant.beziehungskiste.model.domain.partner;
 
-import de.cpredikant.beziehungskiste.model.domain.bau.Verband;
 import de.cpredikant.beziehungskiste.model.enums.partner.AnredeTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.RechtsformTyp;
 import lombok.AllArgsConstructor;
@@ -31,16 +30,16 @@ public class Arbeitgeber implements Serializable {
 
     private RechtsformTyp rechtsformTyp;
 
-    private Adresse adressen;
-
-    private List<Bankkonto> bankkonto;
-
-    private List<Vertreter> vertreter;
+    private Adresse adresse;
 
     private List<Kontaktdaten> kontaktdaten;
 
+    private List<Emailadresse> emailadressen;
+
     private List<Kontaktperson> kontaktpersonen;
 
-    private List<Verband> verband;
+    private List<Bankkonto> bankkonten;
+
+    private List<Vertreter> vertreter;
 
 }

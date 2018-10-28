@@ -3,6 +3,7 @@ package de.cpredikant.beziehungskiste.model.domain.partner;
 
 import de.cpredikant.beziehungskiste.model.enums.bau.VertreterTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.AnredeTyp;
+import de.cpredikant.beziehungskiste.model.enums.partner.RechtsformTyp;
 import de.cpredikant.beziehungskiste.model.enums.partner.TitelTyp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,10 @@ public class Vertreter implements Serializable {
     private AnredeTyp anredeTyp;
 
     private TitelTyp titelTyp;
+
+    private RechtsformTyp rechtsformTyp;
+
+    private String firmenname;
 
     private String vorname;
 

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArbeitgeberRepository extends CrudRepository<ArbeitgeberEntity, String> {
+
 }
+

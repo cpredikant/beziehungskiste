@@ -4,6 +4,9 @@ import de.cpredikant.beziehungskiste.model.domain.partner.Emailadresse;
 import de.cpredikant.beziehungskiste.model.enums.partner.PartnerTyp;
 import de.cpredikant.beziehungskiste.model.persistence.partner.EmailadresseEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class EmailadresseMapper {
 
     private EmailadresseMapper() {
@@ -26,6 +29,18 @@ public final class EmailadresseMapper {
         return ee;
     }
 
+    public static List<EmailadresseEntity> mappe(final List<Emailadresse> emailadresseListe, final PartnerTyp partnerTyp, final String partnerNr) {
+        final List<EmailadresseEntity> emailadresseEntities = new ArrayList<>();
+
+        if (emailadresseListe != null) {
+            for (final Emailadresse emailadresse : emailadresseListe) {
+                emailadresseEntities.add(EmailadresseMapper.mappe(emailadresse, partnerTyp, partnerNr));
+            }
+        }
+
+        return emailadresseEntities;
+    }
+
     public static Emailadresse mappe(final EmailadresseEntity emailadresseEntity) {
 
         if (emailadresseEntity == null) {
@@ -43,4 +58,17 @@ public final class EmailadresseMapper {
 
         return e;
     }
+
+    public static List<Emailadresse> mappe(final Iterable<EmailadresseEntity> emailadresseEntities) {
+        final List<Emailadresse> emailadresseListe = new ArrayList<>();
+
+        if (emailadresseEntities != null) {
+            for (final EmailadresseEntity emailadresseEntity : emailadresseEntities) {
+                emailadresseListe.add(EmailadresseMapper.mappe(emailadresseEntity));
+            }
+        }
+
+        return emailadresseListe;
+    }
+
 }

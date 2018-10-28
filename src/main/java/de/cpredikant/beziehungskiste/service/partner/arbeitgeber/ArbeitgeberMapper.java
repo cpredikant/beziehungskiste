@@ -1,7 +1,9 @@
 package de.cpredikant.beziehungskiste.service.partner.arbeitgeber;
 
-import de.cpredikant.beziehungskiste.model.domain.partner.Arbeitgeber;
+import de.cpredikant.beziehungskiste.model.domain.partner.*;
 import de.cpredikant.beziehungskiste.model.persistence.partner.ArbeitgeberEntity;
+
+import java.util.List;
 
 public final class ArbeitgeberMapper {
 
@@ -47,6 +49,27 @@ public final class ArbeitgeberMapper {
         a.setVorname(arbeitgeberEntity.getVorname());
         a.setNachname(arbeitgeberEntity.getNachname());
 
+
+        return a;
+    }
+
+
+    public static Arbeitgeber mappe(final ArbeitgeberEntity arbeitgeberEntity,
+                                    final Adresse adresse,
+                                    final List<Kontaktdaten> kontaktdatenListe,
+                                    final List<Emailadresse> emailadresseListe,
+                                    final List<Kontaktperson> kontaktpersonListe,
+                                    final List<Bankkonto> bankkontoListe,
+                                    final List<Vertreter> vertreterListe) {
+
+        final Arbeitgeber a = ArbeitgeberMapper.mappe(arbeitgeberEntity);
+
+        a.setAdresse(adresse);
+        a.setKontaktdaten(kontaktdatenListe);
+        a.setBankkonten(bankkontoListe);
+        a.setKontaktpersonen(kontaktpersonListe);
+        a.setVertreter(vertreterListe);
+        a.setEmailadressen(emailadresseListe);
 
         return a;
     }

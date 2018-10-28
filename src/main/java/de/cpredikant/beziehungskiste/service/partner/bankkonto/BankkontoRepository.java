@@ -9,6 +9,7 @@ import java.util.Optional;
 @Repository
 public interface BankkontoRepository extends CrudRepository<BankkontoEntity, Long> {
 
+
     Optional<BankkontoEntity> findByPartnerNr(String partnerNr);
 
 }
