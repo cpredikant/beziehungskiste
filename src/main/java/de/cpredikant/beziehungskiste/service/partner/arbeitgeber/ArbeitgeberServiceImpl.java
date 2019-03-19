@@ -19,6 +19,7 @@ import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -139,6 +140,42 @@ public class ArbeitgeberServiceImpl implements ArbeitgeberService {
                 kontaktpersonListe,
                 bankkontoListe,
                 vertreterListe);
+    }
+
+    @Override
+    public List<Arbeitgeber> readArbeitgeber() {
+
+        List<Arbeitgeber> arbeitgeberListe = new ArrayList<>();
+
+        Iterable<ArbeitgeberEntity> arbeitgeberEntityListe = arbeitgeberRepository.findAll();
+
+        for (ArbeitgeberEntity arbeitgeberEntity : arbeitgeberEntityListe){
+            String arbeitgeberNr = arbeitgeberEntity.getArbeitgeberNr();
+
+            final Adresse adresse = AdresseMapper.mappe(adresseRepository.findByPartnerNr(arbeitgeberNr).orElse(null));
+
+            final List<Kontaktdaten> kontaktdatenListe = KontaktdatenMapper.mappe(kontaktdatenRepository.findAllByPartnerNr(arbeitgeberNr));
+
+            final List<Emailadresse> emailadresseListe = EmailadresseMapper.mappe(emailadresseRepository.findAllByPartnerNr(arbeitgeberNr));
+
+            final List<Kontaktperson> kontaktpersonListe = KontaktpersonMapper.mappe(kontaktpersonRepository.findAllByPartnerNr(arbeitgeberNr));
+
+            final List<Bankkonto> bankkontoListe = BankkontoMapper.mappe(bankkontoRepository.findAllByPartnerNr(arbeitgeberNr));
+
+            final List<Vertreter> vertreterListe = VertreterMapper.mappe(vertreterRepository.findAllByPartnerNr(arbeitgeberNr));
+
+            arbeitgeberListe.add(ArbeitgeberMapper.mappe(
+                    arbeitgeberEntity,
+                    adresse,
+                    kontaktdatenListe,
+                    emailadresseListe,
+                    kontaktpersonListe,
+                    bankkontoListe,
+                    vertreterListe));
+        }
+
+        return arbeitgeberListe;
+
     }
 
     @Override

@@ -7,9 +7,12 @@ import de.cpredikant.beziehungskiste.model.domain.util.PartnerNrGenerator;
 import de.cpredikant.beziehungskiste.service.partner.arbeitgeber.ArbeitgeberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ArbeitgeberController {
@@ -47,6 +50,17 @@ public class ArbeitgeberController {
                                 createdArbeitgeber.getArbeitgeberNr())).withRel("delete")
         );
 
+    }
+
+    @GetMapping("/arbeitgeber")
+    public Resources<List<Arbeitgeber>> leseArbeitgeber() {
+
+        final List<Arbeitgeber> arbeitgeberListe = arbeitgeberService.readArbeitgeber();
+
+        return new Resources(arbeitgeberListe,
+                ControllerLinkBuilder.linkTo(
+                        ControllerLinkBuilder.methodOn(
+                                ArbeitgeberController.class).leseArbeitgeber()).withSelfRel());
     }
 
     @GetMapping("/arbeitgeber/{arbeitgeberNr}")
